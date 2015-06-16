@@ -34,7 +34,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@bitbucket.org:vierbergenlars/authclient-bundle.git"
+            "url": "https://bitbucket.org/vierbergenlars/authclient-bundle.git"
         }
     ],
     "conflict": {
