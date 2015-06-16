@@ -8,9 +8,14 @@
             <div class="panel-body">
                 <dl class="dl-horizontal">
                     <dt>Name</dt><dd>{{ user.realname }}</dd>
-                    <dt>Wiki name</dt><dd>{{ user.wikiName }}</dd>
+                    <dt>Wiki name</dt><dd>
+                        {% if user.wikiName == null %}
+                            <a href="{{ url('user_wikiname') }}">Set wiki name</a>
+                        {% else %}
+                            {{ user.wikiName }}
+                        {% endif %}
+                    </dd>
                 </dl>
-                {{ dump(user) }}
             </div>
         </div>
     </div>
