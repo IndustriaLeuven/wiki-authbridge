@@ -1,0 +1,12 @@
+/app/cache/*
+/app/logs/*
+/app/config/parameters.yml 
+/vendor/
+/bin/
+/node_modules
+/components
+/app/database.sqlite
+/web/bundles
+/web/css
+/web/js
+/web/fonts

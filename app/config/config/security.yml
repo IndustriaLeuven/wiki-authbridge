@@ -1,0 +1,34 @@
+security:
+#    encoders: ~
+
+    role_hierarchy:
+        ROLE_GROUP_OPSWIKI: ROLE_USER
+        ROLE_GROUP_%SYSOPS: ROLE_ADMIN
+        ROLE_ADMIN: ROLE_USER
+
+    providers:
+        main:
+            id: vl_auth_client.user_provider
+
+    firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        public:
+            pattern: ^/
+            oauth:
+                resource_owners:
+                    vl_auth_client: /login/oauth
+                login_path: /login
+                use_forward: false
+                failure_path: /login
+                oauth_user_provider:
+                    service: vl_auth_client.user_provider
+            logout:
+                target: %oauth_client_server%/usr/kill-session
+            anonymous: ~
+
+    access_control:
+         - { path: ^/login, roles: [ IS_AUTHENTICATED_ANONYMOUSLY ] }
+         - { path: ^/, roles: [ ROLE_USER ] }

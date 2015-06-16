@@ -1,0 +1,16 @@
+user_profile:
+    path: /profile
+    defaults:
+        _controller: AppBundle:App:profile
+
+user_wikiname:
+    path: /wikiname
+    defaults:
+        _controller: AppBundle:App:wikiName
+
+user_wikilogin:
+    path: /wikilogin
+    defaults:
+        _controller: AppBundle:App:wikiLogin
+        wikiSecret: %wiki_secretcode%
+        wikiTarget: %wiki_target%

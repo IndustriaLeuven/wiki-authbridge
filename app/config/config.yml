@@ -1,0 +1,6 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: config/security.yml }
+    - { resource: config/framework.yml }
+    - { resource: config/oauth.yml }
+    - { resource: config/assetic.yml }

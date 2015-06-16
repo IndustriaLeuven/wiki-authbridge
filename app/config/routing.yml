@@ -1,0 +1,21 @@
+login:
+    path: /login
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: hwi_oauth_service_redirect
+        service: vl_auth_client
+
+hwi_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /login
+
+app:
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix: /
+
+login_check:
+    path: /login_check
+
+logout:
+    path: /logout
+
