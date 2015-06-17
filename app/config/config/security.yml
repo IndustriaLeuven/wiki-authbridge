@@ -2,9 +2,7 @@ security:
 #    encoders: ~
 
     role_hierarchy:
-        ROLE_GROUP_OPSWIKI: ROLE_USER
-        ROLE_GROUP_%SYSOPS: ROLE_ADMIN
-        ROLE_ADMIN: ROLE_USER
+        ROLE_GROUP_OPSWIKI_USERS: ROLE_USER
 
     providers:
         main:
