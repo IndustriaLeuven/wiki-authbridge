@@ -1,3 +1,9 @@
+home:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: user_wikilogin
+
 user_profile:
     path: /profile
     defaults:
