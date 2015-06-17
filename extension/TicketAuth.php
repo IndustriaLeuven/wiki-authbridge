@@ -58,7 +58,7 @@ function efTktAuth_OnUserLoadFromSession ( $user, &$result )
 	global $wgRequest, $wgUser, $wgContLang, $wgOut, $wgTktAuth_BridgeURL;
 
     $page = Title::newFromText($wgRequest->getVal('title'));
-    if($page->isSpecial('Userlogin')) {
+    if($page&&$page->isSpecial('Userlogin')) {
         header('Location: '.$wgTktAuth_BridgeURL);
         exit;
     }
