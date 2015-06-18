@@ -188,6 +188,8 @@ function efTktAuth_OnUserLoadFromSession ( $user, &$result )
 		$wgOut->getContext()->setUser( $user );
 	}
 
+	header('Location: '.explode('?',$wgRequest->getRequestURL())[0]);
+
 	$result = true;
 	return true;
 }
