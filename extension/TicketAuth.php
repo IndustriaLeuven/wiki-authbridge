@@ -83,31 +83,31 @@ function efTktAuth_OnUserLoadFromSession ( $user, &$result )
 		$error = 'TicketAuth: wgTktAuth_TicketExpiryMinutes required global variable is not set.';
 	if ( isset( $error ) ) {
 		wfDebug( $error . "\n" );
-		die( $error );
+		return false;
 	}
 
 	if ( $email != '' && !Sanitizer::validateEmail( $email ) ) {
 		$error = 'TicketAuth: Invalid e-mail address was provided.';
 		wfDebug( $error . "\n" );
-		die( $error );
+		return false;
 	}
 
 	if ( $timestamp + ((int) $GLOBALS['wgTktAuth_TicketExpiryMinutes']) * 60 < time() ) {
 		$error = 'TicketAuth: Provided ticket has expired. ';
 		wfDebug( $error . "\n" );
-		die( $error . 'Please, refresh the web page that has generated this link and retry.' );
+		return false;
 	}
 
 	if ( $password != '' && !preg_match( '/^[0-9a-f]{32}$/i', $password ) ) {
 		$error = 'TicketAuth: Invalid password MD5 hash was provided.';
 		wfDebug( $error . "\n" );
-		die( $error );
+		return false;
 	}
 	if ( $password != '' && isset( $wgPasswordSalt ) ) {
 		$error = 'TicketAuth: Transferring password hash is incompatible with ' .
 			'$wgPasswordSalt setting.';
 		wfDebug( $error . "\n" );
-		die( $error );
+		return false;
 	}
 	
 	$data = 'user=' . urlencode( $username ) .
@@ -121,14 +121,14 @@ function efTktAuth_OnUserLoadFromSession ( $user, &$result )
 	if ( $signature != $validSignature ) {
 		$error = 'TicketAuth: Ticket signature is invalid.';
 		wfDebug( $error . "\n" );
-		die( $error );
+		return false;
 	}
 
 	$username = User::getCanonicalName( $username, 'creatable' );
 	if ( $username === false ) {
 		$error = 'TicketAuth: Provided username is not valid for MediaWiki.';
 		wfDebug( $error . "\n" );
-		die( $error );
+		return false;
 	}
 
 	$user = User::newFromName( $username );
@@ -149,7 +149,7 @@ function efTktAuth_OnUserLoadFromSession ( $user, &$result )
 		if ( !$user ) {
 			$error = 'TicketAuth: Could not create user.';
 			wfDebug( $error . "\n" );
-			die( $error );
+			return false;
 		}
 		$user->setOption( 'TicketAuth', true );
 		$user->saveSettings();
@@ -167,7 +167,7 @@ function efTktAuth_OnUserLoadFromSession ( $user, &$result )
 			$error = 'TicketAuth: User\'s account with this login name already exists and ' .
 				'it was not created by TicketAuth. Can\'t authenticate.';
 			wfDebug( $error . "\n" );
-			die( $error );
+			return false;
 		}
 		if ( $realName != '' ) {
 			$user->setRealName( $realName );
