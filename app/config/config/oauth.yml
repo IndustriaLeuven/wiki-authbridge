@@ -3,6 +3,7 @@ vl_auth_client:
         client_id: %oauth_client_id%
         client_secret: %oauth_client_secret%
         authserver: %oauth_client_server%
+        scope: 'profile:groups'
     user_provider:
         entity: AppBundle:User
 hwi_oauth:
