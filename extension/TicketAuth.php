@@ -152,7 +152,6 @@ function efTktAuth_OnUserLoadFromSession ( $user, &$result )
             wfDebug( $error . "\n" );
             return false;
         }
-        $user->setOption( 'TicketAuth', true );
         $user->saveSettings();
         if ( session_id() == '' ) {
             wfSetupSession();
@@ -164,12 +163,6 @@ function efTktAuth_OnUserLoadFromSession ( $user, &$result )
         $user->addNewUserLogEntry( 'autocreate', 'TicketAuth' );
     } else {
         wfDebug( "TicketAuth: Logging user in.\n" );
-        if ( !$user->getBoolOption( 'TicketAuth' ) ) {
-            $error = 'TicketAuth: User\'s account with this login name already exists and ' .
-                'it was not created by TicketAuth. Can\'t authenticate.';
-            wfDebug( $error . "\n" );
-            return false;
-        }
         if ( $realName != '' ) {
             $user->setRealName( $realName );
         }
