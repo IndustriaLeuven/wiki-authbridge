@@ -679,7 +679,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/e33e07137c43a492589e89d79d36807cbfcf28e0",
+                "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/861d3564c03b3867845ffd87d9b19f49dc673c69",
                 "reference": "e33e07137c43a492589e89d79d36807cbfcf28e0",
                 "shasum": ""
             },
@@ -912,7 +912,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/67f02686c6c779ae50489728b91026bc8199720c",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/43619782df4e9ae6be6b24557f0429471eeee848",
                 "reference": "67f02686c6c779ae50489728b91026bc8199720c",
                 "shasum": ""
             },
@@ -2628,7 +2628,13 @@
             "source": {
                 "type": "git",
                 "url": "https://bitbucket.org/vierbergenlars/authclient-bundle.git",
-                "reference": "a1e9f80bb1849b404fd6d532609c0dffff92517b"
+                "reference": "3e682557d12aa476f6f8a707756b4e6a752d6326"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://bitbucket.org/vierbergenlars/authclient-bundle/get/3e682557d12aa476f6f8a707756b4e6a752d6326.zip",
+                "reference": "3e682557d12aa476f6f8a707756b4e6a752d6326",
+                "shasum": ""
             },
             "require": {
                 "doctrine/doctrine-bundle": "~1.2",
@@ -2656,7 +2662,7 @@
             ],
             "description": "Symfony VlAuthClientBundle",
             "homepage": "https://bitbucket.org/vierbergenlars/authclient-bundle",
-            "time": "2015-01-15 14:10:41"
+            "time": "2015-06-26 01:13:40"
         }
     ],
     "packages-dev": [],
