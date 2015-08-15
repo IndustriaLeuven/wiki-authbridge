@@ -27,3 +27,13 @@ monolog:
             type:  stream
             path:  %kernel.logs_dir%/%kernel.environment%.log
             level: debug
+        rollbar:
+            type:         fingers_crossed
+            action_level: error
+            handler:      rollbar_buffer
+        rollbar_buffer:
+            type:    buffer
+            handler: rollbar_send
+        rollbar_send:
+            type: rollbar
+            token: %rollbar_access_token%

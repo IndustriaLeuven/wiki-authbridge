@@ -29,7 +29,8 @@
         "doctrine/doctrine-migrations-bundle": "dev-master",
         "hwi/oauth-bundle": "~0.3",
         "vierbergenlars/authclient-bundle": "dev-master",
-        "fortawesome/font-awesome": "~4.2"
+        "fortawesome/font-awesome": "~4.2",
+        "rollbar/rollbar": "^0.15.0"
     },
     "repositories": [
         {
