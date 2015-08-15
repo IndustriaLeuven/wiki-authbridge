@@ -9,7 +9,7 @@ php app/console braincrafted:bootstrap:install --env=prod
 php app/console doctrine:migrations:migrate --env=prod
 
 # Notify rollbar of deploy
-ACCESS_TOKEN=$(sed /rollbar/\!d < app/config/parameters.yml | cut -d: -f2 | tr -d " ")
+ACCESS_TOKEN=$(sed /rollbar/\!d < app/config/parameters.yml | cut -d: -f2 | tr -d " \r\n")
 ENVIRONMENT=production
 LOCAL_USERNAME=`whoami`
 REVISION=`git log -n 1 --pretty=format:"%H"`
