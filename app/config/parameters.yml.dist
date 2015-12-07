@@ -16,5 +16,6 @@ parameters:
 
     wiki_secretcode:     ~
     wiki_target:         ~
+    wiki_group:          ~
 
     rollbar_access_token: ~
