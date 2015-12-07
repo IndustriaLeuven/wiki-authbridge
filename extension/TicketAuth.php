@@ -20,7 +20,9 @@ $wgTktAuth_TicketExpiryMinutes = 10;
 // is set to true and unless the user will reset the password manually
 $wgTktAuth_AllowPasswordChange = true;
 // The URL that will initialize authentication
-$wgTktAuth_BridgeUrl = 'http://authbridge.wiki.example/wikilogin'
+$wgTktAuth_BridgeURL = 'http://authbridge.wiki.example/wikilogin';
+// The URL that will log the user out
+$wgTktAuth_LogoutURL = 'http://authbridge.wiki.example/logout';
 // Path to this file, relative to MediaWiki installation
 require_once("$IP/extensions/TicketAuth/TicketAuth.php");
 */
@@ -47,6 +49,7 @@ $wgExtensionCredits['other'][] = array (
 );
 
 $wgHooks['UserLoadFromSession'][] = 'efTktAuth_OnUserLoadFromSession';
+$wgHooks['UserLogoutComplete'][] = 'efTktAuth_UserLogoutComplete';
 $wgHooks['PrefsPasswordAudit'][] = 'efTktAuth_OnPrefsPasswordAudit';
 $wgHooks['SpecialPasswordResetOnSubmit'][] = 'efTktAuth_OnSpecialPasswordResetOnSubmit';
 $wgHooks['UserLoginMailPassword'][] = 'efTktAuth_OnUserLoginMailPassword';
@@ -186,6 +189,13 @@ function efTktAuth_OnUserLoadFromSession ( $user, &$result )
 
     $result = true;
     return true;
+}
+
+function efTktAuth_UserLogoutComplete(&$user, &$inject_html, $old_name)
+{
+    global $wgTktAuth_LogoutURL;
+    header('Location: '.$wgTktAuth_LogoutURL);
+    exit;
 }
 
 function efTktAuth_OnPrefsPasswordAudit ( $user, $newPass, $error )
