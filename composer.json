@@ -23,21 +23,14 @@
         "braincrafted/bootstrap-bundle": "~2.1",
         "twbs/bootstrap": "~3.0",
         "components/jquery": "~1.11.0",
-        "doctrine/migrations": "dev-master",
         "bmatzner/fontawesome-bundle": "~4.1",
         "knplabs/knp-paginator-bundle": "~2.4",
-        "doctrine/doctrine-migrations-bundle": "dev-master",
+        "doctrine/doctrine-migrations-bundle": "^1.1.0",
         "hwi/oauth-bundle": "~0.3",
-        "vierbergenlars/authclient-bundle": "dev-master",
+        "vierbergenlars/authclient-bundle": "~0.4.0",
         "fortawesome/font-awesome": "~4.2",
         "rollbar/rollbar": "^0.15.0"
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://bitbucket.org/vierbergenlars/authclient-bundle.git"
-        }
-    ],
     "conflict": {
         "symfony/routing": "2.4.1"
     },
